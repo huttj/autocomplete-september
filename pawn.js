@@ -1,3 +1,6 @@
+const handleInput = require('./handleInput');
+
+
 function isInBounds(location) {
   const [l, n] = location.split('');
   if (l < 'a' || l > 'h' || +n < 1 || +n > 8) {
@@ -87,7 +90,4 @@ function testAndLog(location) {
   console.log(location, isSafe(location));
 }
 
-testAndLog('a1 h8');
-testAndLog('a8 h1');
-testAndLog('a1 h3');
-testAndLog('a3 b4');
+handleInput(lines => lines.map(isSafe).map(result => console.log(result)));
